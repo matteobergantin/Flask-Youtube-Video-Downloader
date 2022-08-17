@@ -12,7 +12,6 @@ function updateProgressbar(element, progress) {
 }
 
 function downloadVideo(element, id, onlyAudio = false) {
-    console.log(element)
     $(element).find('.video-download-init').css('opacity', '1')
     const title = $(element).find('.video-title').text()
 
