@@ -1,0 +1,137 @@
+.videos-list-wrapper {
+    margin-top: 50px;
+    min-width: 500px;
+    max-width: 50%;
+    min-height: 50%;
+}
+
+form[action="/"] {
+    position: relative;
+    height: 38px;
+}
+
+button[type="submit"] {
+    float: right;
+    width: 25%;
+}
+
+input[name="playlist"] {
+    float: left;
+    width: 75%;
+}
+
+.video-list {
+    margin-top: 50px;
+}
+
+.video:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.video:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0px 15px;
+    padding-top: 15px;
+    border-bottom: none;
+}
+
+.video {
+    position: relative;
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    height: fit-content;
+    padding: 15px 15px;
+    padding-top: 30px;
+    background: linear-gradient(to right, #191f22, #131618,#0d0c0b, #060505);
+    border-bottom: 1px solid #271F42;
+}
+
+.video-title {
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.video-options-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+}
+
+.video-thumbnail:hover > .video-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.download-vid {
+    display: none;
+}
+
+.video-options:hover > .download-vid {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 22pt;
+    display: initial;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 0px 12pt;
+}
+
+.video-progress-bar {
+    position: relative;
+    border-radius: 5px;
+    height: 15px;
+    background: DarkOrchid;
+    width: 0%;
+}
+
+.video-progress-bar>p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 9pt;
+}
+
+.video-download-init {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.vid-dwnload-options-wrapper {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    transform: translateY(25px);
+}
+
+.vid-dwnload-options-wrapper > a {
+    margin-top: 100px;
+    margin-right: 10px;
+    font-size: 9pt;
+    text-decoration: none;
+    cursor: pointer;
+    color: #746CC0 !important;
+}
+
+.vid-dwnload-options-wrapper > a:hover {
+    color: #58427C !important;
+}

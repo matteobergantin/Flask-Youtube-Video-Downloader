@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Youtube Playlist Downloader</title>
+        <script src="/static/jquery/jquery-3.6.0.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/utils/bootstrap-alert-function.js"></script>
+        <script src="/static/utils/filedownload.js"></script>
+        <script src="/static/index/index.js"></script>
+        <link rel="stylesheet" href="/static/bootstrap/css/darkly.min.css">
+        <link rel="stylesheet" href="/static/index/index.css">
+    </head>
+    <body>
+        <center>
+        <div class="videos-list-wrapper">
+            <form method="GET" action="/">
+                <input class="form-control" type="text" placeholder="Insert playlist ID here" name="playlist" value="{{ playlist }}">
+                <button type="submit" class="btn btn-primary">Select playlist</button>
+            </form>
+            {% if video_list|length == 0 %}
+                <h3 class="mt-5">No playlist selected</h3>
+            {% else %}
+            <ul class="video-list">
+                {% for video in video_list %}
+                <li class="video">
+                    <div class="video-thumbnail" >
+                        <img width="170px" src="{{ video.thumbnail }}">
+                        <div class="video-options">
+                            <div class="download-vid" onclick="downloadVideo(this.parentElement.parentElement.parentElement, '{{ video.url }}')">&#8595;</div>
+                        </div>
+                    </div>
+                    <div class="video-options-wrapper">
+                        <a class="video-title" href="{{ video.base + video.url }}" target="_blank">{{ video.title }}</a>
+                        <br>
+                        <div class="vid-dwnload-options-wrapper">
+                            <a onclick="downloadVideo(this.parentElement.parentElement.parentElement, '{{ video.url }}')">Download Video</a>
+                            <a onclick="downloadVideo(this.parentElement.parentElement.parentElement, '{{ video.url }}', true)">Download Audio</a>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="video-download-init">Initializing download...</p>
+                    <div class="video-progress-bar mt-1"><p></p></div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        </center>
+
+        {% if error %}
+        <script>
+            bs_alert('{{ error }}', 'danger')
+        </script>
+        {% endif %}
+    </body>
+</html>

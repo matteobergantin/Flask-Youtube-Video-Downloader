@@ -1,0 +1,9 @@
+# Cache
+__pycache__/
+
+# VSCode config
+.vscode/
+
+# Downloaded files
+*.mp3
+*.mp4
