@@ -94,6 +94,11 @@ def download(videoID: str):
     return send_file(tmp_filename + ('.mp3' if onlyAudio else '.mp4'))
 
 if __name__ == '__main__':
+    for f in listdir('downloaded'):
+        try:
+            remove(f'downloaded{DIR_SEPARATOR}{f}')
+        except:
+            print(f"Couldn't remove file: {f}")
     RemoveFilesThread().start()
     app.run(debug=False, host="0.0.0.0", port=80)
     for f in listdir('downloaded'):
