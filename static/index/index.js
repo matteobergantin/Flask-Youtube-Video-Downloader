@@ -18,7 +18,7 @@ function downloadVideo(element, id, onlyAudio = false) {
     const xhr = new XMLHttpRequest()
     xhr.responseType = "blob"
     xhr.open('GET', `/download/${id}` + (onlyAudio ? '?audio' : ''), true)
-    xhr.onprogress = ev => updateProgressbar($(element)[0], Math.ceil(ev.loaded / ev.total * 100))
+    xhr.onprogress = ev => updateProgressbar(element, Math.ceil(ev.loaded / ev.total * 100))
     xhr.onloadend = async() =>  {
         if (xhr.status == 200)
             beginFileDownload(xhr.response, title + (onlyAudio ? '.mp3' : '.mp4'))
