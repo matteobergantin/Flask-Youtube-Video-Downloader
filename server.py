@@ -51,7 +51,7 @@ def download(videoID: str):
             out += random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
         out = f'downloaded{DIR_SEPARATOR}{out}'
         if exists(out + ('.mp3' if onlyAudio else '.mp4')):
-            return genFilename()
+            return genFilename(audio)
         return out
 
     if not isinstance(videoID, str):
@@ -92,6 +92,7 @@ def download(videoID: str):
         return resp
 
     return send_file(tmp_filename + ('.mp3' if onlyAudio else '.mp4'))
+
 
 if __name__ == '__main__':
     for f in listdir('downloaded'):
